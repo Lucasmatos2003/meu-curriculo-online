@@ -1,0 +1,404 @@
+/* Importação da fonte Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden; /* Limpa floats */
+    padding: 20px 0;
+}
+
+/* Header */
+header {
+    background: #2c3e50; /* Azul escuro */
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 5px;
+    font-size: 2.8em;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #3498db; /* Azul claro */
+}
+
+/* Seções */
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-size: 2.2em;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #3498db;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* Experiência */
+.job {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+}
+
+.job:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.job h3 {
+    color: #34495e; /* Azul acinzentado */
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+
+.job .period {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.job ul {
+    list-style: disc;
+    margin-left: 20px;
+    color: #555;
+}
+
+.job ul li {
+    margin-bottom: 8px;
+}
+
+/* Projetos */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.6em;
+}
+
+.project-card p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.project-card strong {
+    color: #34495e;
+}
+
+.project-card a {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: #2980b9;
+}
+
+/* Habilidades */
+.skills-category {
+    margin-bottom: 30px;
+}
+
+.skills-category h3 {
+    color: #34495e;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    display: inline-block; /* Para o border-bottom ficar do tamanho do texto */
+}
+
+.skills-category ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-category ul li {
+    background-color: #ecf0f1; /* Cinza claro */
+    color: #34495e;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.95em;
+    border: 1px solid #dcdcdc;
+}
+
+/* Educação (Nova Seção) */
+.education-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.education-item:last-child {
+    border-bottom: none;
+}
+
+.education-item h3 {
+    color: #34495e;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+.education-item p {
+    color: #555;
+}
+
+.education-item .period {
+    font-style: italic;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* Certificações (Nova Seção) */
+.cert-list {
+    margin-bottom: 30px;
+}
+
+.cert-list h3 {
+    color: #34495e;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.cert-list ul {
+    list-style: none;
+    padding-left: 20px; /* Para simular lista sem o bullet */
+}
+
+.cert-list ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.cert-list ul li::before {
+    content: '•'; /* Adiciona um bullet customizado */
+    color: #3498db;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+
+/* Contato */
+#contato ul {
+    list-style: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#contato ul li {
+    margin-bottom: 10px;
+}
+
+#contato ul li a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+#contato ul li a:hover {
+    color: #2980b9;
+}
+
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    }
+
+    .skills-category ul {
+        flex-direction: column; /* Habilidades em coluna */
+        align-items: flex-start;
+    }
+
+    .skills-category ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* --- Estilos para o Menu Responsivo (Mobile) --- */
+.menu-toggle {
+    display: none; /* Esconde o botão por padrão em telas grandes */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+}
+
+/* Estilos para o link ativo na navegação */
+header nav ul li a.active {
+    color: #3498db; /* Cor de destaque para o link ativo */
+    border-bottom: 2px solid #3498db; /* Opcional: Adiciona uma borda inferior */
+    padding-bottom: 3px; /* Espaçamento da borda */
+}
+
+/* --- Media Queries para o Menu Responsivo --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostra o botão em telas menores */
+    }
+
+    header nav ul {
+        display: none; /* Esconde o menu por padrão em telas menores */
+        flex-direction: column;
+        width: 100%;
+        background: #34495e; /* Fundo do menu quando aberto */
+        position: absolute;
+        top: 110px; /* Ajuste para ficar abaixo do cabeçalho */
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        z-index: 999;
+    }
+
+    header nav ul.active {
+        display: flex; /* Mostra o menu quando a classe 'active' é adicionada pelo JS */
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    header nav ul li a {
+        display: block;
+        padding: 10px;
+        font-size: 1.1em;
+        width: 100%; /* Faz o link ocupar toda a largura */
+    }
+
+    header nav ul li a.active {
+        background-color: #2c3e50; /* Fundo diferente para o ativo no mobile */
+        border-bottom: none; /* Remove a borda inferior em mobile se preferir */
+        color: #3498db;
+    }
+}

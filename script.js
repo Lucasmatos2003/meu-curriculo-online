@@ -1,5 +1,5 @@
 // --- 1. Rolagem Suave para os Links de Navegação ---
-document.querySelectorAll('nav a').forEach(anchor => {
+document.querySelectorAll('nav a, .cta-button').forEach(anchor => { // Inclui o novo CTA button
     anchor.addEventListener('click', function (e) {
         e.preventDefault(); // Impede o comportamento padrão do link (salto instantâneo)
 
@@ -88,4 +88,46 @@ document.addEventListener('DOMContentLoaded', () => {
             firstNavLink.classList.add('active');
         }
     }
+    // Chamar as funções de sticky e reveal ao carregar
+    handleStickyHeader();
+    revealSections();
 });
+
+// --- 4. Menu Sticky (Cabeçalho Fixo ao Rolar) ---
+const mainHeader = document.getElementById('main-header');
+const headerOffset = mainHeader.offsetTop;
+
+function handleStickyHeader() {
+    if (window.pageYOffset > headerOffset) {
+        mainHeader.classList.add('sticky');
+    } else {
+        mainHeader.classList.remove('sticky');
+    }
+}
+
+window.addEventListener('scroll', handleStickyHeader);
+
+
+// --- 5. Animação ao Rolar (Scroll Reveal) ---
+function revealSections() {
+    const sectionsToReveal = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
+
+    sectionsToReveal.forEach(section => {
+        // Pega a posição do topo da seção em relação à viewport
+        const sectionTop = section.getBoundingClientRect().top;
+        const revealPoint = 150; // Ajuste este valor para controlar quando a animação começa
+
+        // Se a seção está dentro da área de visualização, adicione a classe 'active'
+        if (sectionTop < windowHeight - revealPoint) {
+            section.classList.add('active');
+        } else {
+            // Opcional: remover a classe 'active' ao rolar para cima para reanimar
+            // section.classList.remove('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealSections);
+// Chamar uma vez para seções que já estão visíveis no carregamento
+revealSections();

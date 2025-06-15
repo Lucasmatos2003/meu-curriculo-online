@@ -1,5 +1,5 @@
 /* Importação da fonte Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Montserrat:wght@400;700;900&display=swap');
 
 /* Variáveis CSS para Cores - Facilita a manutenção */
 :root {
@@ -12,7 +12,8 @@
     --background-dark: #ecf0f1; /* Cinza muito claro */
     --border-color: #ddd;
     --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.08);
-    --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.12); /* Sombra um pouco mais pronunciada */
+    --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Reset Básico */
@@ -46,13 +47,59 @@ header {
     text-align: center;
     position: relative;
     box-shadow: var(--shadow-medium); /* Sombra para destaque */
+    transition: all 0.3s ease; /* Para o efeito sticky */
+    z-index: 1000; /* Garante que o header fique por cima */
 }
+
+/* Estilo para o cabeçalho fixo (sticky) */
+header.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 0; /* Reduz padding ao ficar sticky */
+    box-shadow: var(--shadow-heavy);
+    background: rgba(44, 62, 80, 0.95); /* Fundo semi-transparente */
+}
+
+header.sticky .profile-pic {
+    display: none; /* Esconde a foto quando o header fica sticky */
+}
+
+header.sticky .cta-button {
+    display: none; /* Esconde o botão quando o header fica sticky */
+}
+
+header.sticky h1 {
+    font-size: 2.2em; /* Reduz o tamanho do título no sticky */
+    margin-bottom: 0;
+}
+
+header.sticky p {
+    display: none; /* Esconde o subtítulo no sticky */
+}
+
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Torna a imagem circular */
+    object-fit: cover; /* Garante que a imagem preencha o círculo */
+    border: 5px solid var(--primary-color); /* Borda colorida */
+    margin-bottom: 20px;
+    box-shadow: 0 0 0 8px rgba(255,255,255,0.2), var(--shadow-medium); /* Efeito de borda dupla */
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Pequeno zoom no hover */
+}
+
 
 header h1 {
     margin-bottom: 8px;
     font-size: 3.2em; /* Título maior */
     font-family: 'Montserrat', sans-serif; /* Fonte de destaque para o nome */
-    font-weight: 700;
+    font-weight: 900; /* Mais peso para destaque */
     letter-spacing: 1px;
 }
 
@@ -60,7 +107,31 @@ header p {
     font-size: 1.3em; /* Subtítulo um pouco maior */
     margin-bottom: 30px;
     opacity: 0.9;
+    font-weight: 300; /* Mais leve para contraste */
 }
+
+/* Botão CTA (Call to Action) */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-top: 25px;
+    margin-bottom: 40px; /* Mais espaço abaixo do botão */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-light);
+}
+
+.cta-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
 
 header nav ul {
     list-style: none;
@@ -103,6 +174,15 @@ section {
     margin-bottom: 25px; /* Mais espaço entre as seções */
     border-radius: 10px; /* Bordas mais arredondadas */
     box-shadow: var(--shadow-light); /* Sombra mais suave */
+    /* Estilos para o Scroll Reveal */
+    opacity: 0; /* Escondido inicialmente */
+    transform: translateY(50px); /* Começa um pouco abaixo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animação */
+}
+
+section.reveal.active {
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Volta à posição original */
 }
 
 section:last-of-type {
@@ -231,6 +311,7 @@ section p {
     color: #666;
     margin-bottom: 20px; /* Mais espaço antes das ferramentas */
     flex-grow: 1; /* Permite que o parágrafo ocupe o espaço disponível */
+    text-align: left; /* Alinha o texto das descrições do projeto à esquerda */
 }
 
 .project-card strong {
@@ -287,6 +368,7 @@ section p {
     flex-wrap: wrap;
     gap: 12px; /* Mais espaçamento entre as tags */
     padding-top: 10px;
+    justify-content: center; /* Centraliza as tags */
 }
 
 .skills-category ul li {
@@ -296,13 +378,14 @@ section p {
     border-radius: 25px; /* Tags mais arredondadas (pill shape) */
     font-weight: 500;
     font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .skills-category ul li:hover {
     background-color: #2980b9; /* Tom mais escuro no hover */
-    transform: translateY(-2px);
+    transform: scale(1.05); /* Pequeno zoom no hover */
+    box-shadow: var(--shadow-medium);
 }
 
 /* Educação */
@@ -572,6 +655,13 @@ footer {
 
     #contato ul li {
         font-size: 1em;
+    }
+
+    /* Oculta elementos no header sticky em mobile se necessário */
+    header.sticky .profile-pic,
+    header.sticky .cta-button,
+    header.sticky p {
+        display: none;
     }
 }
 

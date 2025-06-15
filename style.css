@@ -392,14 +392,27 @@ section p {
 }
 
 /* Contato */
+#contato {
+    text-align: center; /* Centraliza todo o conteúdo da seção de contato */
+}
+
+#contato p {
+    font-size: 1.05em; /* Mantém o tamanho da fonte */
+    margin-bottom: 25px; /* Espaço abaixo do parágrafo */
+    color: #555;
+}
+
 #contato ul {
     list-style: none;
-    text-align: center;
+    padding: 0; /* Remove padding padrão da ul */
+    display: flex; /* Para centralizar os itens da lista como blocos */
+    justify-content: center; /* Centraliza a lista de links */
+    flex-wrap: wrap; /* Permite que os links quebrem linha */
     margin-top: 30px;
 }
 
 #contato ul li {
-    margin-bottom: 12px;
+    margin: 0 15px 12px; /* Espaçamento entre os itens da lista */
     font-size: 1.1em;
 }
 
@@ -412,7 +425,7 @@ section p {
 
 #contato ul li a:hover {
     color: #2980b9;
-    text-decoration: underline; /* Adiciona sublinhado no hover */
+    text-decoration: underline;
 }
 
 /* Footer */

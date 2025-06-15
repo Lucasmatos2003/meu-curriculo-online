@@ -480,9 +480,10 @@ section p {
 }
 
 #contato p {
-    font-size: 1.05em; /* Mantém o tamanho da fonte */
-    margin-bottom: 25px; /* Espaço abaixo do parágrafo */
+    font-size: 1.05em;
+    margin-bottom: 25px;
     color: #555;
+    text-align: center; /* Força o alinhamento central especificamente para este parágrafo */
 }
 
 #contato ul {

@@ -21,10 +21,6 @@ document.querySelectorAll('nav a').forEach(anchor => {
 });
 
 // --- 2. Menu de Navegação Responsivo (Toggle para Mobile) ---
-// Adicione um botão de menu (hamburguer) no seu HTML, se ainda não tiver.
-// Exemplo de como adicionar ao HTML dentro do <header>:
-// <button class="menu-toggle" aria-label="Abrir menu">☰</button>
-
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const navUl = document.querySelector('header nav ul');
@@ -45,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fecha o menu se clicar fora dele em telas menores
     document.addEventListener('click', (event) => {
+        // Verifica se o clique não foi dentro do menu ou no botão de toggle
         if (!navUl.contains(event.target) && !menuToggle.contains(event.target) && navUl.classList.contains('active')) {
             navUl.classList.remove('active');
         }
@@ -64,6 +61,8 @@ window.addEventListener('scroll', () => {
         const sectionHeight = section.clientHeight;
         // Ponto de detecção: quando o topo da seção está visível na tela
         // Ajuste 'window.scrollY + window.innerHeight / 3' para mudar o ponto de ativação
+        // O valor 'window.innerHeight / 3' significa que a seção se torna 'ativa' quando
+        // 1/3 da altura da viewport já rolou para dentro dela.
         if (pageYOffset >= sectionTop - sectionHeight / 3) {
             current = section.getAttribute('id');
         }
@@ -79,10 +78,12 @@ window.addEventListener('scroll', () => {
 
 // Garante que a primeira seção seja destacada ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
+    // Certifica-se de que há seções e links de navegação para processar
     if (sections.length > 0 && navLinks.length > 0) {
         // Encontra o primeiro link que corresponde à primeira seção
         const firstSectionId = sections[0].getAttribute('id');
         const firstNavLink = document.querySelector(`nav a[href="#${firstSectionId}"]`);
+        // Adiciona a classe 'active' ao primeiro link, se encontrado
         if (firstNavLink) {
             firstNavLink.classList.add('active');
         }
